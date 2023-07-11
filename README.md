@@ -3,7 +3,7 @@ Selfish genetic elements are commonly found in nature and can be transmitted to 
 
 This repository contains scripts related to this CRISPR-mediated toxin-antidote gene drive.
 ## 1. Converting the mpileup to vcf-like file
-To determine the types of editing and calculate the efficiency of gRNA, we first mapped Illumina reads from the PCR product of the target region to the reference using bwa. We then used samtools to call variants from the resulting bam file, which generated a mpileup file. To facilitate easy analysis of variant information, we developed a script that converts the mpileup file to a vcf-like format, for the latter format is easy for get a detailed information of variants for eyes.
+To determine the types and efficiency of gRNA editing , we first mapped Illumina reads from the PCR product of the target region to the reference using bwa. We then used samtools to call variants from the resulting bam file, which generated mpileup files. To facilitate easy analysis of variant information, we developed a script that converts the mpileup file to a vcf-like format, for the vcf format is easy for get a detailed information of variants for eyes.
 
 The scipt and example files are in mpileup_to_vcf directory. Use `perl mpileup_to_vcf.pl` and type enter to see the usage.
 ```
