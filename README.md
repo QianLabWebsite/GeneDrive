@@ -26,7 +26,7 @@ The main features of this scipt include:
 2. It is an individual-based, stocastic model.The population is in Wright-Fisher model.    
 3. It uses two classes: the individual class and population class.  
 ```
-usage: simulate.py [-h] [-w WILD] [-d DRIVE] [-t GENERATION] -e EMBRYO_CUTRATE -g GERMLINE_CUTRATE -i INCOMP_PENE
+usage: toxin_antidote_dynamics_simulation.py [-h] [-w WILD] [-d DRIVE] [-t GENERATION] -e EMBRYO_CUTRATE -g GERMLINE_CUTRATE -i INCOMP_PENE
 
 Dynamics simulation of the CRISPR-mediated toxin-antidote gene drive.
 
@@ -47,5 +47,4 @@ date:   2023.7.11
 version:        1.0
 
 ```
-gene_drive_simulation
-![gene drive simulation](https://github.com/QianLabWebsite/GeneDrive/blob/main/gene_drive_simulation/drive_carriers_freq.embryoRate0.941_germRate0.984_incompene0.04.pdf)https://github.com/QianLabWebsite/GeneDrive/blob/main/gene_drive_simulation/drive_carriers_freq.embryoRate0.941_germRate0.984_incompene0.04.png)
+![gene drive simulation](https://github.com/QianLabWebsite/GeneDrive/blob/main/gene_drive_simulation/drive_carriers_freq.embryoRate0.941_germRate0.984_incompene0.04.png)
