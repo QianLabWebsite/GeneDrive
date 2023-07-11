@@ -23,8 +23,8 @@ Parameters
 This script in gene_drive_simulation implements the dynamic simulation of CRISPR-mediated toxin-antidote gene drive.  
 The main features of this scipt include:  
 1. It is a forward genetic simulation. Set parameters to the initial population and the population will propagate. You can monitor the frequency of drive carriers with the increasing of generations.  
-2. It is an individual based, stocastic model, which using Wright-Fisher model.  
-3  It uses two classes: the individual class and population class.  
+2. It is an individual based, stocastic model, which using Wright-Fisher model.    
+3. It uses two classes: the individual class and population class.  
 ```
 usage: simulate.py [-h] [-w WILD] [-d DRIVE] [-t GENERATION] -e EMBRYO_CUTRATE -g GERMLINE_CUTRATE -i INCOMP_PENE
 
