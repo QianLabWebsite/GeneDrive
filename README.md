@@ -19,4 +19,31 @@ Parameters
         -s <s> sample name used in vcf header line
         -t <s> threshold for snp, about e-3 for illumina reads.[default 0.005]
 ```
+## 2. Dynamics simulation of gene drive
+This script in gene_drive_simulation implements the dynamic simulation of CRISPR-mediated toxin-antidote gene drive.  
+The main features of this scipt include:  
+1. It is a forward genetic simulation. Set parameters to the initial population and the population will propagate. You can monitor the frequency of drive carriers with the increasing of generations.  
+2. It is an individual based, stocastic model, which using Wright-Fisher model.  
+3  It uses two classes: the individual class and population class.  
+```
+usage: simulate.py [-h] [-w WILD] [-d DRIVE] [-t GENERATION] -e EMBRYO_CUTRATE -g GERMLINE_CUTRATE -i INCOMP_PENE
 
+Dynamics simulation of the CRISPR-mediated toxin-antidote gene drive.
+
+Set the parameters to the initial populations and the script will generate frequency of drive carriers along with the increasing of generations
+
+options:
+  -h, --help           show this help message and exit
+  -w WILD              Size of wild population.[default 9900]
+  -d DRIVE             Size of heterozygous individuals carring drive.[default 100]
+  -t GENERATION        Generation of propagation.[default 50]
+  -e EMBRYO_CUTRATE    Embryo DNA cleavage efficiency, float number, between 0-1
+  -g GERMLINE_CUTRATE  Male germline cleavage efficiency,float number, between 0-1
+  -i INCOMP_PENE       Incomplete penetrance rate, float number, between 0-1
+
+author: Bingke Jiao
+mail:   bkjiao@genetics.ac.cn
+date:   2023.7.11
+version:        1.0
+
+```
