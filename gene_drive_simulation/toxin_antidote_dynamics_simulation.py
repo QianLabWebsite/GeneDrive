@@ -8,7 +8,7 @@ The main features of this scipt include:
 2. It is an individual based, stocastic model, which using Wright-Fisher model.
 3  It uses two classes: the individual class and population class.
 
-The design of this script draws inspiration from the SLiM software developed by Benjamin C. Haller and Philipp W. Messer. as well as the Toxin-antidote scripts written by Samuel E. Champer and Jackson Champer
+The design of this script draws inspiration from the SLiM software developed by Benjamin C. Haller and Philipp W. Messer., as well as the Toxin-antidote scripts written by Samuel E. Champer and Jackson Champer
 '''
 
 import random
@@ -232,6 +232,7 @@ def main():
 		plt.legend(loc="lower right")
 
 	plt.savefig("drive_carriers_freq.embryoRate{0}_germRate{1}_incompene{2}.pdf".format(args.embryo_cutrate,args.germline_cutrate,args.incomp_pene),format="pdf")
+	## Since the model is stochastic, the propagation of drive in the beginning of simulation has an important impact on the dynamics. Thus, we should run the model multiple times to get reliable results.
 	# array = np.ones([1,100], dtype = int)
 	# row=0
 	# for i in [(args.embryo_cutrate,args.germline_cutrate,args.incomp_pene)]: #range(10)
