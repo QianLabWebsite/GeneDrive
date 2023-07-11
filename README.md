@@ -50,11 +50,13 @@ version:        1.0
 The output of simulation is the dynamics curve of drive carriers and the frequency of drive carriers in txt file.
 ![gene drive simulation](https://github.com/QianLabWebsite/GeneDrive/blob/main/gene_drive_simulation/drive_carriers_freq.embryoRate0.941_germRate0.984_incompene0.04.png)
 
-Generation      DriveCarriersFreq
-0       0.01
-1       0.0151
-2       0.0193
-3       0.0285
+
+|Generation      |DriveCarriersFreq|
+|----------------|-----------------|
+|0       |0.01|
+|1       |0.0151|
+|2       |0.0193|
+|3       |0.0285|
 4       0.0422
 5       0.0624
 6       0.0947
