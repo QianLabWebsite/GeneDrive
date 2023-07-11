@@ -20,9 +20,9 @@ Parameters
         -t <s> threshold for snp, about e-3 for illumina reads.[default 0.005]
 ```
 ## 2. Dynamics simulation of gene drive
-This script in gene_drive_simulation implements the dynamic simulation of CRISPR-mediated toxin-antidote gene drive.  
+The script `toxin_antidote_dynamics_simulation.py` in gene_drive_simulation directory implements a dynamic simulation of CRISPR-mediated toxin-antidote gene drive.  
 The main features of this scipt include:  
-1. It is a forward genetic simulation. Set parameters to the initial population and the population will propagate. You can monitor the frequency of drive carriers with the increasing of generations.  
+1. It is a forward genetic simulation. Set parameters to the initial population and the population will propagate. You can monitor the frequency of drive carriers alongside the increasing of generations.  
 2. It is an individual-based, stocastic model.The population is in Wright-Fisher model.    
 3. It uses two classes: the individual class and population class.  
 ```
@@ -30,7 +30,7 @@ usage: toxin_antidote_dynamics_simulation.py [-h] [-w WILD] [-d DRIVE] [-t GENER
 
 Dynamics simulation of the CRISPR-mediated toxin-antidote gene drive.
 
-Set the parameters to the initial populations and the script will generate frequency of drive carriers along with the increasing of generations
+Set parameters to the initial populations and the script will generate frequency of drive carriers along with the increasing of generations
 
 options:
   -h, --help           show this help message and exit
@@ -47,4 +47,28 @@ date:   2023.7.11
 version:        1.0
 
 ```
+The output of simulation is the dynamics curve of drive carriers and the frequency of drive carriers in txt file.
 ![gene drive simulation](https://github.com/QianLabWebsite/GeneDrive/blob/main/gene_drive_simulation/drive_carriers_freq.embryoRate0.941_germRate0.984_incompene0.04.png)
+
+Generation      DriveCarriersFreq
+0       0.01
+1       0.0151
+2       0.0193
+3       0.0285
+4       0.0422
+5       0.0624
+6       0.0947
+7       0.1377
+8       0.1954
+9       0.2654
+10      0.3625
+11      0.4796
+12      0.6082
+13      0.7397
+14      0.8505
+15      0.9295
+16      0.9749
+17      0.993
+18      0.9981
+19      1.0
+
