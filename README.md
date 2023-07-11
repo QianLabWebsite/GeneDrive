@@ -1,5 +1,6 @@
 # GeneDrive
-Scripts related to CRISPR-mediated toxin-antidote gene drive
+Selfish genetic elements are commonly found in nature and can be transmitted to progeny at super-Mendelian (>50%) frequencies, despite it could cause potertial fitness or fecundity costs to the host. Inspired by the selfish genetic elements, we constructed CAIN (CRISPR-Assisted Inheritance utilizing NPG1), a synthetic toxin-antidote gene drive specifically developed for plants, making a ref fluorescence marker transmitting at frequency above 88%. 
+This repository contains scripts related to this CRISPR-mediated toxin-antidote gene drive.
 ## 1. Converting the mpileup to vcf-like file
 The scipts which can convert the mpileup file to vcf-like file and example files are in mpileup_to_vcf directory. Use `perl mpileup_to_vcf.pl` and type enter to see the usage.
 ```
