@@ -47,4 +47,4 @@ date:   2023.7.11
 version:        1.0
 
 ```
-![gene drive simulation]([http://static.runoob.com/images/runoob-logo.png](https://github.com/QianLabWebsite/GeneDrive/blob/main/gene_drive_simulation/drive_carriers_freq.embryoRate0.941_germRate0.984_incompene0.04.pdf)https://github.com/QianLabWebsite/GeneDrive/blob/main/gene_drive_simulation/drive_carriers_freq.embryoRate0.941_germRate0.984_incompene0.04.pdf)
+![gene drive simulation]([http://static.runoob.com/images/runoob-logo.png](https://github.com/QianLabWebsite/GeneDrive/blob/main/gene_drive_simulation/drive_carriers_freq.embryoRate0.941_germRate0.984_incompene0.04.pdf)https://github.com/QianLabWebsite/GeneDrive/blob/main/gene_drive_simulation/drive_carriers_freq.embryoRate0.941_germRate0.984_incompene0.04.png)
