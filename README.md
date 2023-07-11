@@ -22,8 +22,8 @@ Parameters
 ## 2. Dynamics simulation of gene drive
 The script `toxin_antidote_dynamics_simulation.py` in gene_drive_simulation directory implements a dynamic simulation of CRISPR-mediated toxin-antidote gene drive.  
 The main features of this scipt include:  
-1. It is a forward genetic simulation. Set parameters to the initial population and the population will propagate. You can monitor the frequency of drive carriers alongside the increasing of generations.  
-2. It is an individual-based, stocastic model.The population is in Wright-Fisher model.    
+1. It is a forward genetic simulation. Set parameters to the initial population and the population will propagate. You can monitor the frequency of drive carriers along with the increasing of generations.  
+2. The model is individual-based and stochastic, with population properties based on the Wright-Fisher model. This model is characterized by finite individuals, random mating, and non-overlapping generations.    
 3. It uses two classes: the individual class and population class.  
 ```
 usage: toxin_antidote_dynamics_simulation.py [-h] [-w WILD] [-d DRIVE] [-t GENERATION] -e EMBRYO_CUTRATE -g GERMLINE_CUTRATE -i INCOMP_PENE
