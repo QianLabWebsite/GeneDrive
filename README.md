@@ -47,7 +47,7 @@ date:   2023.7.11
 version:        1.0
 
 ```
-The output of simulation is the dynamics curve of drive carriers and the frequency of drive carriers in txt file.
+The output of simulation are the dynamics curve picture of drive carriers and the frequency of drive carriers in txt file.
 ![gene drive simulation](https://github.com/QianLabWebsite/GeneDrive/blob/main/gene_drive_simulation/drive_carriers_freq.embryoRate0.941_germRate0.984_incompene0.04.png)
 
 
