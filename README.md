@@ -20,6 +20,7 @@ Parameters
         -t <s> threshold for snp, about e-3 for illumina reads.[default 0.005]
 ```
 ## 2. Dynamics simulation of gene drive
+### 1. CAIN modification drive    
 The script `toxin_antidote_dynamics_simulation.py` in gene_drive_simulation directory simulate the propagation of the CRISPR-mediated toxin-antidote gene drive under different parameters such as embryo DNA cleavage efficiency, male germline cleavage efficiency, incomplete penetrance rate, and initial release ratio of drive heterozygotes. The model is stochastic, and therefore, multiple simulations are necessary to produce reliable results(uncommentting the code in the end of script will run the same parameters 100 times). The script outputs the frequency of drive carriers at each generation and can also be used to estimate the number of generations required for the gene drive to reach fixation. 
 The main features of this scipt include:  
 1. It is a forward genetic simulation. Set parameters to the initial population and the population will propagate. You can monitor the frequency of drive carriers along with the increasing of generations.  
@@ -73,4 +74,28 @@ The output of simulation are the dynamics curve picture of drive carriers and th
 |17      |0.993|
 |18      |0.9981|
 |19      |1.0|
+### 2. CAIN suppression drive
+The script CAIN_suppression.py is designed to simulate the dynamics of a suppression version of the CAIN drive. The CAIN drive can be located in and therefore disrupt a fertility gene in either males or females. Individuals who are homozygous for the CAIN drive will become sterile. As the number of individuals with homozygous CAIN drive increases, the population will eventually collapse.
+```
+usage: CAIN_suppression.py [-h] [-w WILD] [-d DRIVE] [-t GENERATION] -e EMBRYO_CUTRATE -g GERMLINE_CUTRATE [-s SEX] [-o OUTPUT]
 
+Dynamics simulation of the CAIN(TADS) suppression drive.
+
+Set the parameters to the initial populations and the script will generate frequency and individual number of drive carriers along with the increasing of generation              s
+
+options:
+  -h, --help           show this help message and exit
+  -w WILD              Size of wild population.[default 9900]
+  -d DRIVE             Size of heterozygous individuals carring drive.[default 100]
+  -t GENERATION        Generation of propagation.[default 50]
+  -e EMBRYO_CUTRATE    Embryo DNA cleavage efficiency, float number, between 0-1
+  -g GERMLINE_CUTRATE  Germline DNA cleavage efficiency,float number, between 0-1
+  -s SEX               Set the fertility gene where drive located in, character, male or female
+  -o OUTPUT            Output file prefix, character
+
+author: Bingke Jiao
+mail:   bkjiao@genetics.ac.cn
+date:   2023.8.23
+version:        1.0
+```
+![CAIN_suppression simulation](https://github.com/QianLabWebsite/GeneDrive/blob/main/gene_drive_simulation/CAIN_suppression.density_regulation_production.hermaphroditic.png)
