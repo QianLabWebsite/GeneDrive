@@ -10,7 +10,7 @@ from CAIN_viability_and_inbreeding import Population
 
 output=sys.argv[1] #"CAIN.Fig6a"
 
-CAPACITY=1000 #The environment capacity of population
+CAPACITY=10000 #The environment capacity of population
 drive_num=100 #The number of CAIN carriers initially release to the wild population
 wild_num=CAPACITY-drive_num #The number of individuals in wild population
 
@@ -77,5 +77,5 @@ plt.ylabel("Frequency of CAIN carriers",fontsize=12)
 
 plt.legend(loc="center right")
 plt.tight_layout()
-plt.savefig(output+"pdf",format="pdf")
+plt.savefig(output+".pdf",format="pdf")
 
