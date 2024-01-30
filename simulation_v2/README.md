@@ -9,6 +9,7 @@ python CAIN_homing_calculate.py CAIN_Homing.0124.10k
 ```
 The output files are `CAIN_Homing.0124.100k.csv` and `CAIN_Homing.0124.100k.pdf`
 ##### 3. To produce the Fig 6c, put the `CAIN_suppression.py` and the `CAIN_suppression_calculate.py` in one directory, and then run
+If the CAIN is inserted to a male fertility gene(Fig 6c), run
 ```
 python CAIN_suppression_calculate.py CAIN_suppression_male_homo_sterile #The output file is CAIN_suppression_male_homo_sterile.csv
 python CAIN_suppression_draw.py CAIN_suppression_male_homo_sterile male #The output file is CAIN_suppression_male_homo_sterile.pdf
