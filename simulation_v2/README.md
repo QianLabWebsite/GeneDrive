@@ -7,7 +7,7 @@ The example files are `CAIN.Fig7a.0124.csv` and `CAIN.Fig7a.0124.pdf`
 ```
 python CAIN_homing_calculate.py CAIN_Homing.0124.10k
 ```
-
+The example files are `CAIN_Homing.0124.100k.csv` and `CAIN_Homing.0124.100k.pdf`
 ##### 3. To produce the Fig 6c, put the `CAIN_suppression.py` and the `CAIN_suppression_calculate.py` in one directory, and then run
 ```
 python CAIN_suppression_calculate.py CAIN_suppression_male_homo_sterile
