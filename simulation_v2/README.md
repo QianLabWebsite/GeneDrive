@@ -13,3 +13,8 @@ The output files are `CAIN_Homing.0124.100k.csv` and `CAIN_Homing.0124.100k.pdf`
 python CAIN_suppression_calculate.py CAIN_suppression_male_homo_sterile
 ```
 The output files are `CAIN_suppression_male_homo_sterile.csv` and `CAIN_suppression_male_homo_sterile.pdf`
+##### 4. To simulate the effect of half pollen of CAIN heterozygous male parent on the fertilty, run the command below.
+```
+python CAIN_male_pollen_half_calculate.py CAIN.male_half_pollen.summary
+```
+The output files are `CAIN.male_half_pollen.summary.csv` and `CAIN.male_half_pollen.summary.pdf`
