@@ -2,7 +2,7 @@
 ```
 python CAIN_modification_male_cut_simulation.py CAIN.Fig6a #To change the parameters, such as environment capacity, inbreeding coefficient, you can edit script before running
 ```
-The output files are `CAIN.Fig7a.0124.csv` and `CAIN.Fig7a.0124.pdf`
+The output files are `CAIN.Fig6a.csv` and `CAIN.Fig6a.pdf`
 ##### 2. To produce the Fig 6b, put the `CAIN_modification_male_cut_simulation.py`, `homing_drive.py` and the `CAIN_homing_calculate.py` in one directory, and then run
 ```
 python CAIN_homing_calculate.py CAIN_Homing.0124.10k
