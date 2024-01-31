@@ -66,25 +66,29 @@ The output of simulation are the dynamics curve picture of drive carriers and th
 ### 2. CAIN suppression drive
 The script `CAIN_suppression.py` is designed to simulate the dynamics of a suppression version of the CAIN drive. The CAIN drive can be located in and therefore disrupt a fertility gene in either males or females. Individuals who are homozygous for the CAIN drive will become sterile. As the number of individuals with homozygous CAIN drive increases, the population will eventually collapse.
 ```
-usage: CAIN_suppression.py [-h] [-w WILD] [-d DRIVE] [-t GENERATION] -e EMBRYO_CUTRATE -g GERMLINE_CUTRATE [-s SEX] [-o OUTPUT]
+usage: CAIN_suppression_simulation.py [-h] [-w WILD] [-d DRIVE] [-c CAPA] [-t GENERATION] -f EMBRYO_CUTRATE -g GERMLINE_CUTRATE [-i INCOMP_PENE] [-s SEX]
+                                      [-r DRIVE_FITNESS] [-o OUTPUT]
 
 Dynamics simulation of the CAIN(TADS) suppression drive.
 
-Set the parameters to the initial populations and the script will generate frequency and individual number of drive carriers along with the increasing of generation              s
+Set the parameters to the initial populations and the script will generate frequency and individual number of drive carriers along with the increasing of generations
 
 options:
   -h, --help           show this help message and exit
   -w WILD              Size of wild population.[default 9900]
   -d DRIVE             Size of heterozygous individuals carring drive.[default 100]
+  -c CAPA              Environment capacity.[default 10000]
   -t GENERATION        Generation of propagation.[default 50]
-  -e EMBRYO_CUTRATE    Embryo DNA cleavage efficiency, float number, between 0-1
-  -g GERMLINE_CUTRATE  Germline DNA cleavage efficiency,float number, between 0-1
-  -s SEX               Set the fertility gene where drive located in, character, male or female
+  -f EMBRYO_CUTRATE    female germline DNA cleavage efficiency, float number, between 0-1
+  -g GERMLINE_CUTRATE  male germline DNA cleavage efficiency, float number, between 0-1
+  -i INCOMP_PENE       Incomplete penetrance rate, float number, between 0-1
+  -s SEX               Set the fertility gene where drive located in, character, male, female or both. "both" means homozygotes are not viable.
+  -r DRIVE_FITNESS     Relative fitness value comparing of CAIN comparing with the wild-type, float number, between 0-1
   -o OUTPUT            Output file prefix, character
 
 author: Bingke Jiao
 mail:   bkjiao@genetics.ac.cn
-date:   2023.8.23
+date:   2024.1.31
 version:        1.0
 ```
 ![CAIN_suppression simulation](https://github.com/QianLabWebsite/GeneDrive/blob/main/gene_drive_simulation/CAIN_suppression.density_regulation_production.hermaphroditic.png)
