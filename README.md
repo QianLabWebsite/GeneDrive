@@ -94,3 +94,5 @@ date:   2024.1.31
 version:        1.0
 ```
 ![CAIN_suppression simulation](https://github.com/QianLabWebsite/GeneDrive/blob/main/simulation_v2/CAIN_suppression_test.male.png)
+
+Visit the simulation_v2 directory to see scripts about the pictures in the paper.
