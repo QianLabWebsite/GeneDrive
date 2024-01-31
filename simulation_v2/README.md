@@ -1,9 +1,15 @@
+
+The classes are stored in `CAIN_viability_and_inbreeding.py`, `homing_drive.py`, `CAIN_suppression.py`, `CAIN_male_pollen_half.py`. 
+
+Other files whose names include "calculate", "simulation" or "draw" are the implementation of the classes files.  
+
+The files whose suffiex are ".csv" or ".pdf" are the output files.  
 ##### 1. To simulate the impact of male germline cleavage efficiency and incomplete penerance on the CAIN spread(Fig 6a), put the `CAIN_modification_male_cut_simulation.py` and the `CAIN_viability_and_inbreeding.py` in one directory, and then run   
 ```
 python CAIN_modification_male_cut_simulation.py CAIN.Fig6a #To change the parameters, such as environment capacity, inbreeding coefficient, you can edit script before running
 ```
 The output files are `CAIN.Fig6a.csv` and `CAIN.Fig6a.pdf`
-##### 2. To simulate the impact of addition of female germline cleavage efficiency on the CAIN spread(Fig 6b), put the `CAIN_modification_male_cut_simulation.py`, `homing_drive.py` and the `CAIN_homing_calculate.py` in one directory, and then run
+##### 2. To simulate the impact of addition of female germline cleavage efficiency on the CAIN spread(Fig 6b), put the `CAIN_viability_and_inbreeding.py`, `homing_drive.py` and the `CAIN_homing_calculate.py` in one directory, and then run
 ```
 python CAIN_homing_calculate.py CAIN_Homing.0124.10k
 ```
