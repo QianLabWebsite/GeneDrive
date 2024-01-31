@@ -27,7 +27,9 @@ The script `toxin_antidote_dynamics_simulation.py` in gene_drive_simulation dire
 The main features of this scipt include:  
 1. It is a forward genetic simulation. Set parameters to the initial population and the population will propagate. You can monitor the frequency of drive carriers along with the increasing of generations.  
 2. The model is individual-based and stochastic, with population properties based on the Wright-Fisher model. This model is characterized by finite individuals, random mating, and non-overlapping generations.    
-3. It uses two classes: the individual class and population class.  
+3. It uses two classes: the individual class and population class.
+
+The implementation of this script needs to put the `CAIN_viability_and_inbreeding.py` in the same directory.
 ```
 usage: toxin_antidote_dynamics_simulation.py [-h] [-w WILD] [-d DRIVE] [-c CAPA] [-t GENERATION] -f EMBRYO_CUTRATE -g GERMLINE_CUTRATE -i INCOMP_PENE
                                              [-b BIRTH_FIT] [-r DRIVE_FITNESS] [-in INBREEDING] [-dr SUPMEND] [-li LINKAGE]
