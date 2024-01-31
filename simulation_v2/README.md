@@ -19,8 +19,19 @@ If the CAIN is inserted to a female fertility gene(Extended Data Figure 8), run
 python CAIN_suppression_calculate.py CAIN_suppression_female_homo_sterile female #The output file is CAIN_suppression_female_homo_sterile.csv
 python CAIN_suppression_draw.py CAIN_suppression_female_homo_sterile female #The output file is CAIN_suppression_female_homo_sterile.pdf
 ```
-##### 4. To simulate the effect of half pollen of CAIN heterozygous male parent on the fertilty, run the command below.
+If the CAIN is inserted to a viable gene, where the CAIN homozygotes are not viable(Extended Data Figure 8), run
+```
+python CAIN_suppression_calculate.py CAIN_suppression_homo_nonviable both #The output file is CAIN_suppression_homo_nonviable.csv
+python CAIN_suppression_draw.py CAIN_suppression_homo_nonviable both  #The output file is CAIN_suppression_homo_nonviable.pdf
+```
+
+##### 4. To simulate the effect of half pollen of CAIN heterozygous male parent on the fertilty(Extended Data Figure 8), put the `CAIN_male_pollen_half.py` and `CAIN_male_pollen_half_calculate.py` in one directory and run the command below.
 ```
 python CAIN_male_pollen_half_calculate.py CAIN.male_half_pollen.summary
 ```
 The output files are `CAIN.male_half_pollen.summary.csv` and `CAIN.male_half_pollen.summary.pdf`
+##### 5. To simulate the scenario where the CAIN is in linkage with the target gene NPG1 and compare it with the unlinkage one(Extended Data Figure 8), put the `CAIN_viability_and_inbreeding.py` and `CAIN_linkage_VS_nolinkage_calculate.py` and then run
+```
+python CAIN_linkage_VS_nolinkage_calculate.py CAIN_spread_linkage_VS_nolinkage
+```
+The output files are `CAIN_spread_linkage_VS_nolinkage.linkage.csv`, `CAIN_spread_linkage_VS_nolinkage.nolinkage.csv`,`CAIN_spread_linkage_VS_nolinkage.pdf`.
