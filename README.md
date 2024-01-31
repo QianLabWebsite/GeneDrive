@@ -64,7 +64,9 @@ The output of simulation are the dynamics curve picture of drive carriers and th
 
 
 ### 2. CAIN suppression drive
-The script `CAIN_suppression.py` is designed to simulate the dynamics of a suppression version of the CAIN drive. The CAIN drive can be located in and therefore disrupt a fertility gene in either males or females. Individuals who are homozygous for the CAIN drive will become sterile. As the number of individuals with homozygous CAIN drive increases, the population will eventually collapse.
+The script `CAIN_suppression_simulation.py` is designed to simulate the dynamics of a suppression version of the CAIN drive. The CAIN drive can be located in and therefore disrupt a fertility gene in either males or females. Individuals who are homozygous for the CAIN drive will become sterile. As the number of individuals with homozygous CAIN drive increases, the population will eventually collapse.
+
+The implementation of this script needs to put the `CAIN_suppression.py` in the same directory.
 ```
 usage: CAIN_suppression_simulation.py [-h] [-w WILD] [-d DRIVE] [-c CAPA] [-t GENERATION] -f EMBRYO_CUTRATE -g GERMLINE_CUTRATE [-i INCOMP_PENE] [-s SEX]
                                       [-r DRIVE_FITNESS] [-o OUTPUT]
