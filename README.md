@@ -27,24 +27,31 @@ The main features of this scipt include:
 2. The model is individual-based and stochastic, with population properties based on the Wright-Fisher model. This model is characterized by finite individuals, random mating, and non-overlapping generations.    
 3. It uses two classes: the individual class and population class.  
 ```
-usage: toxin_antidote_dynamics_simulation.py [-h] [-w WILD] [-d DRIVE] [-t GENERATION] -e EMBRYO_CUTRATE -g GERMLINE_CUTRATE -i INCOMP_PENE
+usage: toxin_antidote_dynamics_simulation.py [-h] [-w WILD] [-d DRIVE] [-c CAPA] [-t GENERATION] -f EMBRYO_CUTRATE -g GERMLINE_CUTRATE -i INCOMP_PENE
+                                             [-b BIRTH_FIT] [-r DRIVE_FITNESS] [-in INBREEDING] [-dr SUPMEND] [-li LINKAGE]
 
-Dynamics simulation of the CRISPR-mediated toxin-antidote gene drive.
+        Dynamics simulation of the CRISPR-mediated toxin-antidote gene drive.
 
-Set parameters to the initial populations and the script will generate frequency of drive carriers along with the increasing of generations
+        Set the parameters to the initial populations and the script will generate frequency of drive carriers along with the increasing of generations
 
 options:
   -h, --help           show this help message and exit
   -w WILD              Size of wild population.[default 9900]
   -d DRIVE             Size of heterozygous individuals carring drive.[default 100]
+  -c CAPA              Environment capacity.[default 10000]
   -t GENERATION        Generation of propagation.[default 50]
-  -e EMBRYO_CUTRATE    Embryo DNA cleavage efficiency, float number, between 0-1
+  -f EMBRYO_CUTRATE    Female cleavage efficiency, float number, between 0-1
   -g GERMLINE_CUTRATE  Male germline cleavage efficiency,float number, between 0-1
   -i INCOMP_PENE       Incomplete penetrance rate, float number, between 0-1
+  -b BIRTH_FIT         Births coefficient affecting the fertility of CAIN heterozygotes, float number, between 1-2
+  -r DRIVE_FITNESS     Relative fitness value comparing of CAIN comparing with the wild-type, float number, between 0-1
+  -in INBREEDING       Inbreeding level, float number, between 0-1
+  -dr SUPMEND          Value indicating whether CAIN is inherited as a drive or obey the rule of Mendelian law, string, Yes or No
+  -li LINKAGE          Value indicating whether CAIN is in linkage with the target gene or not, string, Yes or No
 
 author: Bingke Jiao
 mail:   bkjiao@genetics.ac.cn
-date:   2023.7.11
+date:   2024.1.31
 version:        1.0
 
 ```
