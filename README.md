@@ -91,4 +91,4 @@ mail:   bkjiao@genetics.ac.cn
 date:   2024.1.31
 version:        1.0
 ```
-![CAIN_suppression simulation](https://github.com/QianLabWebsite/GeneDrive/blob/main/simulation_v2/CAIN_suppression_male_homo_sterile.png)
+![CAIN_suppression simulation](https://github.com/QianLabWebsite/GeneDrive/blob/main/simulation_v2/CAIN_suppression_test.male.png)
