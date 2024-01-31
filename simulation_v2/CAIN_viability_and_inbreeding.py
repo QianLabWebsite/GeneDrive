@@ -23,7 +23,7 @@ The gender of every individuals are initially set to hermaphroditic, i.e. bisexu
 and female reproductive organs.The gender will be changed to male or female before they mate.
 '''
 class Individual:
-    def __init__(self, sex, embryo_cutrate,germline_cutrate,chr1,chr2,incomPene,birthsCoef,fitCoef,drive="Yes"):
+    def __init__(self, sex, embryo_cutrate,germline_cutrate,chr1,chr2,incomPene,birthsCoef,fitCoef,drive="Yes",linkage="No"):
         self.sex = sex
         self.chr1=chr1
         self.chr2=chr2
@@ -35,7 +35,8 @@ class Individual:
         self.incomPene=incomPene
         self.birthsCoef=birthsCoef
         self.fitCoef=fitCoef
-        self.drive=drive 
+        self.drive=drive
+        self.linkage=linkage 
     
     def embryo_cut(self):  #This method used cut the "wt" in chr2 when the "dr" is present. Store the cutted genotype in germ_chr1 and germ_chr2.
         l=[0,0]
@@ -74,43 +75,76 @@ class Individual:
     def recom(self):    #This recom() method recombine the chr1 and chr2 and transmit haplotype genome to the offspring.
         rand=random.random()
         
-        if self.sex=="male":
-            #self.germline_cut() #Cut target sites in male germline
-            if self.germ_chr1 in [("dr","wt"),("wt","dr")]: #If the "dr" is heterozygous in chr1.
-                if self.germ_chr2 in [("wt","ko"),("ko","wt")]:
-                    if rand<100/(300+self.incomPene):
-                        return ("dr","ko")
-                    elif rand >= 100/(300+self.incomPene) and rand < 200/(300+self.incomPene):
-                        return ("dr","wt")
-                    elif rand >= 200/(300+self.incomPene) and rand < 300/(300+self.incomPene): #If there are incomplete penetrance, the "wt,wt" haplotype will be viable.
-                        return ("wt","wt")
+        if self.linkage=="No": #If the drive is not in linkage with the target gene
+            if self.sex=="male":
+                #self.germline_cut() #Cut target sites in male germline
+                if self.germ_chr1 in [("dr","wt"),("wt","dr")]: #If the "dr" is heterozygous in chr1.
+                    if self.germ_chr2 in [("wt","ko"),("ko","wt")]:
+                        if rand<100/(300+self.incomPene):
+                            return ("dr","ko")
+                        elif rand >= 100/(300+self.incomPene) and rand < 200/(300+self.incomPene):
+                            return ("dr","wt")
+                        elif rand >= 200/(300+self.incomPene) and rand < 300/(300+self.incomPene): #If there are incomplete penetrance, the "wt,wt" haplotype will be viable.
+                            return ("wt","wt")
+                        else:
+                            return ("wt","ko")
+                    elif self.germ_chr2==("ko","ko"):
+                        if rand<100/(100+self.incomPene):
+                            return ("dr","ko")
+                        else:
+                            return ("wt","ko")
+                    
+                    elif self.germ_chr2==("wt","wt"):
+                        return (random.choice(self.germ_chr1),random.choice(self.germ_chr2))
+                elif self.germ_chr1 == ("wt","wt"):   #If the "dr" is not present
+                    if self.germ_chr2 in [("wt","ko"),("ko","wt")]:
+                        if rand < 100/(100+self.incomPene):
+                            return ("wt","wt")
+                        else:
+                            return ("wt","ko")
                     else:
-                        return ("wt","ko")
-                elif self.germ_chr2==("ko","ko"):
-                    if rand<100/(100+self.incomPene):
-                        return ("dr","ko")
-                    else:
-                        return ("wt","ko")
-                
-                elif self.germ_chr2==("wt","wt"):
-                    return (random.choice(self.germ_chr1),random.choice(self.germ_chr2))
-            elif self.germ_chr1 == ("wt","wt"):   #If the "dr" is not present
-                if self.germ_chr2 in [("wt","ko"),("ko","wt")]:
-                    if rand < 100/(100+self.incomPene):
-                        return ("wt","wt")
-                    else:
-                        return ("wt","ko")
-                else:
-                    return (random.choice(self.germ_chr1),random.choice(self.germ_chr2))
-            else:  #If the "dr" is homozygous in chr1.
+                        return (random.choice(self.germ_chr1),random.choice(self.germ_chr2))
+                else:  #If the "dr" is homozygous in chr1.
+                    s1=random.choice(self.germ_chr1)
+                    s2=random.choice(self.germ_chr2)
+                    return (s1,s2)
+            else:
+                #self.embryo_cut() #Cut target site in embryo.
                 s1=random.choice(self.germ_chr1)
                 s2=random.choice(self.germ_chr2)
                 return (s1,s2)
-        else:
-            #self.embryo_cut() #Cut target site in embryo.
-            s1=random.choice(self.germ_chr1)
-            s2=random.choice(self.germ_chr2)
-            return (s1,s2)
+            
+        elif self.linkage=="Yes": #If the drive is in linkage with the target gene.
+            if self.sex=="male":
+                if self.germ_chr1==("dr","dr"):
+                    return ("dr",random.choice(self.germ_chr2))
+                if self.germ_chr1 in [("dr","wt"),("wt","dr")]:
+                    if self.germ_chr2==("wt","wt"):
+                        return random.choice([("dr","wt"),("wt","wt")])
+                if self.germ_chr1==("dr","wt"):
+                    if self.germ_chr2==("ko","wt"):
+                        return random.choice([("dr","ko"),("wt","wt")])
+                    elif self.germ_chr2==("wt","ko"):
+                        return ("dr","wt")
+                    elif self.germ_chr2==("ko","ko"):
+                        return ("dr","ko")
+                elif self.germ_chr1==("wt","dr"):
+                    if self.germ_chr2==("ko","wt"):
+                        return ("dr","wt")
+                    elif self.germ_chr2==("wt","ko"):
+                        return random.choice([("wt","wt"),("dr","ko")])
+                    elif self.germ_chr2==("ko","ko"):
+                        return ("dr","ko")
+                elif self.germ_chr1==("wt","wt"):
+                    if self.germ_chr2 in [("ko","wt"),("wt","ko")]:
+                        return ("wt","wt")
+                    elif self.germ_chr2==("wt","wt"):
+                        return ("wt","wt")
+                    elif self.germ_chr2==("ko","ko"):
+                        print("Male is sterile!")
+                        return None
+            if self.sex=="female":
+                return random.choice([(self.germ_chr1[0],self.germ_chr2[0]),(self.germ_chr1[1],self.germ_chr2[1])])
         
     def getBirthsCoef(self): #Modify the birth coefficient of individual according to its' genotype.
         coef=1
@@ -131,7 +165,7 @@ class Individual:
 
 
 class Population:
-    def __init__(self,size,capacity,embryo_cutrate,germline_cutrate,chr1,chr2,incomPene,birthsCoef,fitCoef,inbCoef,drive="Yes"):
+    def __init__(self,size,capacity,embryo_cutrate,germline_cutrate,chr1,chr2,incomPene,birthsCoef,fitCoef,inbCoef,drive="Yes",linkage="No"):
         self.size = size #population size, an integer
         self.capacity=capacity #environment capacity
         self.individuals = [] #A list storing the individual objects.
@@ -142,10 +176,11 @@ class Population:
         self.fitCoef=fitCoef #fitness value of one drive allele
         self.inbCoef=inbCoef #inbreeding coefficient
         self.drive=drive #The boolean value indicates whether CAIN functions as a driver or is simply inherited according to Mendelian laws. 
+        self.linkage=linkage #The boolean value indicates whether the CAIN is in linkage with the target gene or not.
 
         for i in range(size):
             sex="hermaphroditic"
-            self.individuals.append(Individual(sex, self.embryo_cutrate,self.germline_cutrate, chr1, chr2, self.incomPene, self.birthsCoef, self.fitCoef, self.drive)) #Initialize the list with size of individual objects.
+            self.individuals.append(Individual(sex, self.embryo_cutrate,self.germline_cutrate, chr1, chr2, self.incomPene, self.birthsCoef, self.fitCoef, self.drive, self.linkage)) #Initialize the list with size of individual objects.
 
     def get_size(self):
         self.size=len(self.individuals)
@@ -204,7 +239,7 @@ class Population:
                 chr1=(genome1[0],genome2[0])
                 chr2=(genome1[1],genome2[1])
                 sex="hermaphroditic"
-                offspring.append(Individual(sex, self.embryo_cutrate, self.germline_cutrate,chr1, chr2, self.incomPene, self.birthsCoef,self.fitCoef,self.drive))
+                offspring.append(Individual(sex, self.embryo_cutrate, self.germline_cutrate,chr1, chr2, self.incomPene, self.birthsCoef,self.fitCoef,self.drive,self.linkage))
         elif self.drive=="No": #If the driver behaves according to the Mendelian law.
             for i in range(int(num_offspring)):
                 genome1=male.getGamete()
@@ -212,7 +247,7 @@ class Population:
                 chr1=(genome1[0],genome2[0])
                 chr2=(genome1[1],genome2[1])                
                 sex="hermaphroditic"
-                offspring.append(Individual(sex, self.embryo_cutrate, self.germline_cutrate,chr1, chr2, self.incomPene, self.birthsCoef,self.fitCoef,self.drive))
+                offspring.append(Individual(sex, self.embryo_cutrate, self.germline_cutrate,chr1, chr2, self.incomPene, self.birthsCoef,self.fitCoef,self.drive,self.linkage))
         
         return offspring
 
