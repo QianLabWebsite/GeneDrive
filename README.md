@@ -20,8 +20,10 @@ Parameters
         -t <s> threshold for snp, about e-3 for illumina reads.[default 0.005]
 ```
 ## 2. Dynamics simulation of gene drive
-### 1. CAIN modification drive    
-The script `toxin_antidote_dynamics_simulation.py` in gene_drive_simulation directory simulate the propagation of the CRISPR-mediated toxin-antidote gene drive under different parameters such as embryo DNA cleavage efficiency, male germline cleavage efficiency, incomplete penetrance rate, and initial release ratio of drive heterozygotes. The model is stochastic, and therefore, multiple simulations are necessary to produce reliable results(uncommentting the code in the end of script will run the same parameters 100 times). The script outputs the frequency of drive carriers at each generation and can also be used to estimate the number of generations required for the gene drive to reach fixation. 
+### 1. CAIN modification drive
+The directory "simulation_v2" contains the scripts and output files about CAIN drive simulation.
+
+The script `toxin_antidote_dynamics_simulation.py` in gene_drive_simulation directory simulate the propagation of the CRISPR-mediated toxin-antidote gene drive under different parameters such as female germline DNA cleavage efficiency, male germline cleavage efficiency, incomplete penetrance rate, and initial release ratio of drive heterozygotes. The model is stochastic, and therefore, multiple simulations are necessary to produce reliable results. The script outputs the frequency of drive carriers at each generation and can also be used to estimate the number of generations required for the gene drive to reach fixation. 
 The main features of this scipt include:  
 1. It is a forward genetic simulation. Set parameters to the initial population and the population will propagate. You can monitor the frequency of drive carriers along with the increasing of generations.  
 2. The model is individual-based and stochastic, with population properties based on the Wright-Fisher model. This model is characterized by finite individuals, random mating, and non-overlapping generations.    
@@ -56,31 +58,9 @@ version:        1.0
 
 ```
 The output of simulation are the dynamics curve picture of drive carriers and the frequency of drive carriers in txt file.
-![gene drive simulation](https://github.com/QianLabWebsite/GeneDrive/blob/main/gene_drive_simulation/drive_carriers_freq.embryoRate0.941_germRate0.984_incompene0.04.png)
+![gene drive simulation](https://github.com/QianLabWebsite/GeneDrive/blob/main/simulation_v2/drive_carriers_freq.femaleRate1.0_maleRate1.0_incompene0.0.png)
 
 
-|Generation      |DriveCarriersFreq|
-|----------------|-----------------|
-|0       |0.01|
-|1       |0.0151|
-|2       |0.0193|
-|3       |0.0285|
-|4       |0.0422|
-|5       |0.0624|
-|6       |0.0947|
-|7       |0.1377|
-|8       |0.1954|
-|9       |0.2654|
-|10      |0.3625|
-|11      |0.4796|
-|12      |0.6082|
-|13      |0.7397|
-|14      |0.8505|
-|15      |0.9295|
-|16      |0.9749|
-|17      |0.993|
-|18      |0.9981|
-|19      |1.0|
 ### 2. CAIN suppression drive
 The script `CAIN_suppression.py` is designed to simulate the dynamics of a suppression version of the CAIN drive. The CAIN drive can be located in and therefore disrupt a fertility gene in either males or females. Individuals who are homozygous for the CAIN drive will become sterile. As the number of individuals with homozygous CAIN drive increases, the population will eventually collapse.
 ```
